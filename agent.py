@@ -125,7 +125,7 @@ def build_agent():
 
     llm = ChatGroq(
         model="llama-3.3-70b-versatile",
-        groq_api_key=st.secrets("GROQ_API_KEY"),
+        groq_api_key=st.secrets["GROQ_API_KEY"],
         temperature=0,
         max_tokens=4096,     # agents need more tokens for reasoning
         max_retries=3,
