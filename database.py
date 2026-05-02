@@ -7,14 +7,16 @@ from dotenv import load_dotenv
 load_dotenv()
 import streamlit as st
 
-conn = snowflake.connector.connect(
-    account=st.secrets["SNOWFLAKE_ACCOUNT"],
-    user=st.secrets["SNOWFLAKE_USER"],
-    password=st.secrets["SNOWFLAKE_PASSWORD"],
-    database=st.secrets["SNOWFLAKE_DATABASE"],
-    schema=st.secrets["SNOWFLAKE_SCHEMA"],
-    warehouse=st.secrets["SNOWFLAKE_WAREHOUSE"]
-)
+def get_connection():
+    """Create and return a Snowflake connection."""
+    return snowflake.connector.connect(
+        account=st.secrets["SNOWFLAKE_ACCOUNT"],
+        user=st.secrets["SNOWFLAKE_USER"],
+        password=st.secrets["SNOWFLAKE_PASSWORD"],
+        database=st.secrets["SNOWFLAKE_DATABASE"],
+        schema=st.secrets["SNOWFLAKE_SCHEMA"],
+        warehouse=st.secrets["SNOWFLAKE_WAREHOUSE"]
+    )
 
 
 
